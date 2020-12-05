@@ -34,13 +34,14 @@
                 <form action="home.php" method="POST" enctype="multipart/form-data">
                     <input type="text" id="title" name="title" placeholder="título de la foto..">
                     <input type="file" id="img" name="img">
-                    <input type="submit" value="Añadir">
+                    <input type="hidden" id="id" value="<?php echo $id; ?>">
+                    <input type="submit" name="submit" value="Añadir">
                 </form>
                 <?php
                 if (isset($_POST['submit'])) {
                     require_once '../model/profileDAO.php';
                     $profile1 = new ProfileDao();
-                    $profile1->insertarPosts();
+                    $profile1->insertarPosts($id);
                 }
                 ?>
 

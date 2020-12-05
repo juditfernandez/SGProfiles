@@ -35,21 +35,27 @@ public function insertar(){
         }
     }
 
-    public function insertarPosts(){
-        require_once '../model/connection.php';
-        include '../controller/sessionController.php';
-        $id = $_SESSION['user']->getId();
-        $title = $_POST['title'];
-        $path = 'public/'.$_FILES['img']['name'];
+    public function insertarPosts($id){
+        try{
+            require_once '../model/connection.php';
+            include '../controller/sessionController.php';
+            $id = $_SESSION['user']->getId();
+            $title = $_POST['title'];
+            $path = 'public/'.$_FILES['img']['name'];
             if (move_uploaded_file($_FILES['img']['tmp_name'], '../'.$path)) {
-            /* el ID del user se ha de colocar de manera correcta y no de manera hardcodeada */
+                /* el ID del user se ha de colocar de manera correcta y no de manera hardcodeada */
             $query = "INSERT INTO posts (title, path, user) VALUES(?,?,?)";
             $sentencia = $pdo->prepare($query);
             $sentencia->bindParam(1,$title);
             $sentencia->bindParam(2,$path);
             $sentencia->bindParam(3,$id);
             $sentencia->execute();
-            //header("Location: ../view/home.php");
+            header("Location: ../view/home.php");
+            }
+        }catch (Exception $ex) {
+            /* Reconocer un error y no hacer los cambios */
+            $pdo->rollback();
+            echo $ex->getMessage();
         }
     }
 

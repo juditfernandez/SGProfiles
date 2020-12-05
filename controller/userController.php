@@ -8,7 +8,8 @@ $profile = $_SESSION['user']->getProfile();
 $status = $_SESSION['user']->getStatus();
 
 if ($status == 0) {
-    header('Location: ../view/login.php');
+    echo "El usuario esta bloqueado";
+    //header('Location: ../view/login.php');
 }else{
     if ($profile == 1) {
     header('Location: ../view/home.php');
