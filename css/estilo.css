@@ -1,0 +1,71 @@
+label{
+    font-family: 'Exo 2', sans-serif;
+}
+
+h2{
+    padding-left: 590px;
+}
+
+form{
+    padding-left: 350px;
+    padding-right: 350px;
+    padding-top: 50px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+input[placeholder]{
+    font-family: 'Exo 2', sans-serif;
+}
+
+input[type=text],
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=email],
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=password],
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit],button {
+    width: 100%;
+    background-color: #a32a2af3;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Exo 2', sans-serif;
+}
+
+input[type=submit]:hover,button:hover {
+    background-color: #af1818;
+}
