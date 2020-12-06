@@ -21,7 +21,11 @@ class PostsDao{
             echo "<br>";
         }
             $id=$posts['id'];
-            echo "<img src='../{$posts['path']}'>";
+            if ($posts['user'] == $_SESSION['user']->getId()) {
+                echo "<img class='img1' src='../{$posts['path']}'>";
+            } else {
+                echo "<img src='../{$posts['path']}'>";
+            }
             echo "</div>";
         }
     }
@@ -53,7 +57,13 @@ class PostsDao{
             echo "<td>{$usuario['name']}</td>";
             echo "<td>{$usuario['email']}</td>";
             echo "<td>{$usuario['profile']}</td>";
-            echo "<td><a href='../controller/actualizarEstado.php?id=".$id."&status=".$status."'><i onclick='cambiarIcon()' id='block' class='fas fa-lock-open'></i></a></td>";
+            if ($usuario['profile'] == 3) {
+                echo "<td><i onclick='cambiarIcon()' class='fas fa-lock'></i></td>";
+            } else if ($usuario['status'] == 1) {
+                echo "<td><a href='../controller/actualizarEstado.php?id=".$id."&status=".$status."'><i onclick='cambiarIcon()'  class='fas fa-lock-open color1'></i></a></td>";
+            } else if ($usuario['status'] == 0) {
+                echo "<td><a href='../controller/actualizarEstado.php?id=".$id."&status=".$status."'><i onclick='cambiarIcon()'  class='fas fa-lock color2'></i></a></td>";
+            }
             $id=$usuario['id'];
             $status=$usuario['status'];
             echo "</tr>";

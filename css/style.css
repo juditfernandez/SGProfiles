@@ -186,6 +186,20 @@ input[type=submit]:hover {
     width: 100%;
 }
 
+.color1 {
+    text-decoration: none;
+    color: blue;
+}
+
+.color2 {
+    text-decoration: none;
+    color: red;
+}
+
+.img1 {
+    border: 3px solid green;
+}
+
 
 
 
